@@ -13,5 +13,7 @@ export const PATHS = {
 		staff: "/admin/staff",
 		messages: "/admin/messages",
 		settings: "/admin/settings",
+		organization: "/admin/organization",
+		logs: "/admin/logs",
 	},
 } as const;

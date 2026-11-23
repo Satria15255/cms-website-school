@@ -15,7 +15,9 @@ import NotFoundPage from "@/pages/NotFoundPage";
 
 // Halaman admin di-lazy load supaya pengunjung publik tidak ikut mengunduh kodenya.
 const LoginPage = lazy(() => import("@/pages/auth/LoginPage"));
-const DashboardPage = lazy(() => import("@/pages/admin/dashboard/DashboardPage"));
+const DashboardPage = lazy(
+	() => import("@/pages/admin/dashboard/DashboardPage"),
+);
 const NewsListPage = lazy(() => import("@/pages/admin/news/NewsListPage"));
 const ComingSoonPage = lazy(() => import("@/pages/admin/ComingSoonPage"));
 
@@ -27,7 +29,10 @@ const AppRoutes = () => (
 				<Route path={PATHS.aboutUs} element={<AboutUsPage />} />
 				<Route path={PATHS.classList} element={<ClassListPage />} />
 				<Route path={PATHS.news} element={<NewsPage />} />
-				<Route path={`${PATHS.news}/:slug`} element={<NewsDetailPage />} />
+				<Route
+					path={`${PATHS.news}/:slug`}
+					element={<NewsDetailPage />}
+				/>
 				<Route path={PATHS.contact} element={<ContactPage />} />
 			</Route>
 
@@ -37,13 +42,42 @@ const AppRoutes = () => (
 				<Route element={<AdminLayout />}>
 					<Route index element={<DashboardPage />} />
 					<Route path="news" element={<NewsListPage />} />
-					<Route path="news/new" element={<ComingSoonPage title="Tambah berita" />} />
-					<Route path="news/:id/edit" element={<ComingSoonPage title="Edit berita" />} />
-					<Route path="classes" element={<ComingSoonPage title="Kelas" />} />
-					<Route path="teachers" element={<ComingSoonPage title="Guru" />} />
-					<Route path="staff" element={<ComingSoonPage title="Tenaga kependidikan" />} />
-					<Route path="messages" element={<ComingSoonPage title="Pesan masuk" />} />
-					<Route path="settings" element={<ComingSoonPage title="Pengaturan sekolah" />} />
+					<Route
+						path="news/new"
+						element={<ComingSoonPage title="Tambah berita" />}
+					/>
+					<Route
+						path="news/:id/edit"
+						element={<ComingSoonPage title="Edit berita" />}
+					/>
+					<Route
+						path="classes"
+						element={<ComingSoonPage title="Kelas" />}
+					/>
+					<Route
+						path="teachers"
+						element={<ComingSoonPage title="Guru" />}
+					/>
+					<Route
+						path="staff"
+						element={<ComingSoonPage title="Tenaga kependidikan" />}
+					/>
+					<Route
+						path="messages"
+						element={<ComingSoonPage title="Pesan masuk" />}
+					/>
+					<Route
+						path="settings"
+						element={<ComingSoonPage title="Pengaturan sekolah" />}
+					/>
+					<Route
+						path="organization"
+						element={<ComingSoonPage title="Struktur organisasi" />}
+					/>
+					<Route
+						path="logs"
+						element={<ComingSoonPage title="Log aktivitas" />}
+					/>
 				</Route>
 			</Route>
 
