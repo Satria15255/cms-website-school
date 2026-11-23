@@ -1,23 +1,37 @@
 import { activityLog, dashboardSummary } from "@/mocks/Dashboard";
 import { newsService } from "@/features/news/services/news.service";
 import { getNewsStats } from "@/features/news/newsStats";
+import { classService } from "@/features/classes/services/class.service";
+import { getRombelStats } from "@/features/classes/rombelUtils";
 import { formatDate } from "@/utils/formatDate";
 import type { DashboardNewsRow, DashboardSummary } from "../types";
 
-// Bagian berita diambil dari sumber yang sama dengan halaman Berita,
+// Berita dan rombel diambil dari sumber yang sama dengan halaman masing-masing,
 // jadi angkanya selalu cocok dengan data mock.
 export const dashboardService = {
 	async getSummary(): Promise<DashboardSummary> {
-		const s = getNewsStats(await newsService.getAdminList());
+		const [news, rombels] = await Promise.all([
+			newsService.getAdminList(),
+			classService.getAll(),
+		]);
+		const n = getNewsStats(news);
+		const c = getRombelStats(rombels);
 		return {
 			...dashboardSummary,
 			news: {
-				total: s.total,
-				published: s.published,
-				draft: s.draft,
-				lastPublished: s.latestPublished
-					? formatDate(s.latestPublished)
+				total: n.total,
+				published: n.published,
+				draft: n.draft,
+				lastPublished: n.latestPublished
+					? formatDate(n.latestPublished)
 					: "-",
+			},
+			classes: {
+				total: c.active,
+				vii: c.byLevel.VII,
+				viii: c.byLevel.VIII,
+				ix: c.byLevel.IX,
+				needsHomeroom: c.pending,
 			},
 		};
 	},

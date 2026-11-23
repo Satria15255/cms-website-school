@@ -19,6 +19,7 @@ const DashboardPage = lazy(
 	() => import("@/pages/admin/dashboard/DashboardPage"),
 );
 const NewsListPage = lazy(() => import("@/pages/admin/news/NewsListPage"));
+const ClassesPage = lazy(() => import("@/pages/admin/classes/ClassesPage"));
 const ComingSoonPage = lazy(() => import("@/pages/admin/ComingSoonPage"));
 
 const AppRoutes = () => (
@@ -52,7 +53,7 @@ const AppRoutes = () => (
 					/>
 					<Route
 						path="classes"
-						element={<ComingSoonPage title="Kelas" />}
+						element={<ClassesPage title="Kelas" />}
 					/>
 					<Route
 						path="teachers"
