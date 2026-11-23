@@ -1,0 +1,133 @@
+import type { ClassItem } from "@/features/classes/types";
+
+export const ClassDetails: ClassItem[] = [
+	{
+		id: "CLASS-01",
+		tingkat: "PERTAMA",
+		symbol: "VII",
+		phase: "Adaptasi & Literasi",
+		description:
+			"Fase adaptasi lingkungan baru, penanaman disiplin sekolah, dan pembentukan karakter mandiri peralihan dari sekolah dasar.",
+		koord: "Bu Siti Nurhaliza, S.Pd",
+		subClass: [
+			{
+				kelas: "VII A",
+				walikel: "Siti  Nurhaliza, S.Pd",
+				classRoom: "A -  Lt.2 (R.201)",
+				member: "30",
+				classStatus: "Active",
+				classType: "Reguler",
+			},
+			{
+				kelas: "VII B",
+				walikel: "Dewi  Lestari, S.Pd",
+				classRoom: "A -  Lt.2 (R.202)",
+				member: "32",
+				classStatus: "Active",
+				classType: "Reguler",
+			},
+			{
+				kelas: "VII  C",
+				walikel: "Hendra Wijaya, S.Kom",
+				classRoom: "A -  Lt.2 (R.203)",
+				member: "32",
+				classStatus: "Active",
+				classType: "Reguler",
+			},
+			{
+				kelas: "VII D",
+				walikel: "Ahmad   Fauzi, S.Pd",
+				classRoom: "A -  Lt.2 (R.204)",
+				member: "30",
+				classStatus: "Active",
+				classType: "Reguler",
+			},
+		],
+	},
+	{
+		id: "CLASS-02",
+		tingkat: "MENENGAH",
+		symbol: "VIII",
+		phase: "Penguatan & Minat  Bakat",
+		description:
+			"Fase penajaman logika analitis, eksplorasi sains & teknologi terapan, serta partisipasi aktif dalam kepemimpinan organisasi siswa.",
+		koord: "Bapak Ahmad Fauzi, S.Pd",
+		subClass: [
+			{
+				kelas: "A",
+				walikel: "Ahmad Fauzi, S.Pd",
+				classRoom: "A -  Lt.2 (R.205)",
+				member: "30",
+				classStatus: "Active",
+				classType: "Reguler",
+			},
+			{
+				kelas: "B",
+				walikel: "Agus Setiawan, S.Pd",
+				classRoom: "A -  Lt.2 (R.206)",
+				member: "32",
+				classStatus: "Active",
+				classType: "Reguler",
+			},
+			{
+				kelas: "C",
+				walikel: "Rina Marlina, S.Pd",
+				classRoom: "A -  Lt.2 (R.207)",
+				member: "32",
+				classStatus: "Active",
+				classType: "Reguler",
+			},
+			{
+				kelas: "D",
+				walikel: "Maya Indah, S.Sos",
+				classRoom: "A -  Lt.2 (R.208)",
+				member: "30",
+				classStatus: "Active",
+				classType: "Reguler",
+			},
+		],
+	},
+	{
+		id: "CLASS-03",
+		tingkat: "AKHIR",
+		symbol: "IX",
+		phase: "Pemantapan & Transisi SMA/SMK",
+		description:
+			"Pemantapan capaian literasi-numerasi, persiapan asesmen kelulusan, serta bimbingan terarah pemilihan peminatan lanjutan atas.",
+		koord: "Drs.  Bambang Sudiro, M.Si",
+		subClass: [
+			{
+				kelas: "A",
+				walikel: "Drs.  Bambang Sudiro, M.Si",
+				classRoom: "A -  Lt.3 (R.301)",
+				member: "30",
+				classStatus: "Active",
+				classType: "Reguler",
+			},
+			{
+				kelas: "B",
+				walikel: "Tri Rahayu, S.Pd",
+				classRoom: "A -  Lt.3 (R.302)",
+				member: "32",
+				classStatus: "Active",
+				classType: "Reguler",
+			},
+			{
+				kelas: "C",
+				walikel: "Eko  Supriyadi, S.Pd",
+				classRoom: "A -  Lt.3 (R.303)",
+				member: "32",
+				classStatus: "Active",
+				classType: "Reguler",
+			},
+			{
+				kelas: "D",
+				walikel: "Bagus Prasetyo, S.Ptk",
+				classRoom: "A -  Lt.3 (R.304)",
+				member: "30",
+				classStatus: "Active",
+				classType: "Reguler",
+			},
+		],
+	},
+];
