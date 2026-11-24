@@ -20,6 +20,9 @@ const DashboardPage = lazy(
 );
 const NewsListPage = lazy(() => import("@/pages/admin/news/NewsListPage"));
 const ClassesPage = lazy(() => import("@/pages/admin/classes/ClassesPage"));
+const OrganizationPage = lazy(
+	() => import("@/pages/admin/organization/OrganizationPage"),
+);
 const ComingSoonPage = lazy(() => import("@/pages/admin/ComingSoonPage"));
 
 const AppRoutes = () => (
@@ -55,26 +58,21 @@ const AppRoutes = () => (
 						path="classes"
 						element={<ClassesPage title="Kelas" />}
 					/>
+
 					<Route
-						path="teachers"
+						path="teachers-staff"
 						element={<ComingSoonPage title="Guru" />}
 					/>
+
 					<Route
-						path="staff"
-						element={<ComingSoonPage title="Tenaga kependidikan" />}
-					/>
-					<Route
-						path="messages"
-						element={<ComingSoonPage title="Pesan masuk" />}
+						path="profil-sekolah"
+						element={<ComingSoonPage title="Profil Sekolah" />}
 					/>
 					<Route
 						path="settings"
 						element={<ComingSoonPage title="Pengaturan sekolah" />}
 					/>
-					<Route
-						path="organization"
-						element={<ComingSoonPage title="Struktur organisasi" />}
-					/>
+					<Route path="organization" element={<OrganizationPage />} />
 					<Route
 						path="logs"
 						element={<ComingSoonPage title="Log aktivitas" />}

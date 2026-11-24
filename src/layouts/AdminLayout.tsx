@@ -12,6 +12,9 @@ import {
 	LuLogOut,
 	LuX,
 } from "react-icons/lu";
+import { PiTreeStructure, PiIdentificationCardBold } from "react-icons/pi";
+import { RiDoorOpenLine } from "react-icons/ri";
+import { RxCountdownTimer } from "react-icons/rx";
 import { logout } from "@/features/auth/auth";
 import { PATHS } from "@/app/router/paths";
 
@@ -23,11 +26,24 @@ const NAV = [
 		end: true,
 	},
 	{ to: PATHS.admin.news, label: "Berita", icon: LuNewspaper },
-	{ to: PATHS.admin.classes, label: "Kelas", icon: LuSchool },
-	{ to: PATHS.admin.teachers, label: "Guru", icon: LuUsers },
-	{ to: PATHS.admin.staff, label: "Tenaga kependidikan", icon: LuBriefcase },
-	{ to: PATHS.admin.messages, label: "Pesan masuk", icon: LuMessageSquare },
-	{ to: PATHS.admin.settings, label: "Pengaturan", icon: LuSettings },
+	{ to: PATHS.admin.profile, label: "Profil Sekolah", icon: LuSchool },
+	{
+		to: PATHS.admin.teachers,
+		label: "Tenaga Pendidik & Staff",
+		icon: LuUsers,
+	},
+	{
+		to: PATHS.admin.organization,
+		label: "Sturktur Organisasi",
+		icon: PiTreeStructure,
+	},
+	{ to: PATHS.admin.classes, label: "Kelas & Rombel", icon: RiDoorOpenLine },
+	{
+		to: PATHS.admin.settings,
+		label: "Pengaturan Kontak",
+		icon: PiIdentificationCardBold,
+	},
+	{ to: PATHS.admin.logs, label: "Aktivitas Admin", icon: RxCountdownTimer },
 ];
 
 const AdminLayout = () => {
