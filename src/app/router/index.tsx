@@ -27,6 +27,9 @@ const SchoolProfilePage = lazy(
 	() => import("@/pages/admin/profile/SchoolProfilePage"),
 );
 const TeachersPage = lazy(() => import("@/pages/admin/teachers/TeachersPage"));
+const ContactSettingsPage = lazy(
+	() => import("@/pages/admin/settings/ContactSettingsPage"),
+);
 const ComingSoonPage = lazy(() => import("@/pages/admin/ComingSoonPage"));
 
 const AppRoutes = () => (
@@ -74,7 +77,9 @@ const AppRoutes = () => (
 					/>
 					<Route
 						path="settings"
-						element={<ComingSoonPage title="Pengaturan sekolah" />}
+						element={
+							<ContactSettingsPage title="Pengaturan sekolah" />
+						}
 					/>
 					<Route path="organization" element={<OrganizationPage />} />
 					<Route
