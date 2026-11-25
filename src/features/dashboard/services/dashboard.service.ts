@@ -1,10 +1,34 @@
-import { activityLog, dashboardSummary } from "@/mocks/Dashboard";
+import { dashboardSummary } from "@/mocks/Dashboard";
+import { auditService } from "@/features/audit/services/audit.service";
 import { newsService } from "@/features/news/services/news.service";
 import { getNewsStats } from "@/features/news/newsStats";
 import { classService } from "@/features/classes/services/class.service";
 import { getRombelStats } from "@/features/classes/rombelUtils";
 import { formatDate } from "@/utils/formatDate";
-import type { DashboardNewsRow, DashboardSummary } from "../types";
+import type {
+	ActivityLogItem,
+	DashboardNewsRow,
+	DashboardSummary,
+} from "../types";
+
+const LOG_COLOR = {
+	PUBLISH: "green",
+	UPDATE: "blue",
+	CREATE: "purple",
+	ARCHIVE: "amber",
+	DELETE: "amber",
+} as const;
+const pad = (n: number) => String(n).padStart(2, "0");
+const logTime = (ts: number) => {
+	const d = new Date(ts);
+	const days = Math.floor((Date.now() - ts) / 86_400_000);
+	const hm = `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+	return days < 1
+		? hm
+		: days < 2
+			? `Kemarin, ${hm}`
+			: formatDate(d.toISOString().slice(0, 10));
+};
 
 // Berita dan rombel diambil dari sumber yang sama dengan halaman masing-masing,
 // jadi angkanya selalu cocok dengan data mock.
@@ -51,7 +75,18 @@ export const dashboardService = {
 				thumbnail: "/news1.jfif",
 			}));
 	},
-	async getActivityLog() {
-		return activityLog;
+	async getActivityLog(): Promise<ActivityLogItem[]> {
+		// 4 mutasi terbaru dari Log Aktivitas (tanpa login)
+		const entries = await auditService.getAll();
+		return entries
+			.filter((e) => e.action !== "LOGIN")
+			.slice(0, 4)
+			.map((e) => ({
+				id: e.id,
+				user: e.userId,
+				time: logTime(e.timestamp),
+				message: e.summary,
+				color: LOG_COLOR[e.action as keyof typeof LOG_COLOR],
+			}));
 	},
 };

@@ -30,6 +30,7 @@ const TeachersPage = lazy(() => import("@/pages/admin/teachers/TeachersPage"));
 const ContactSettingsPage = lazy(
 	() => import("@/pages/admin/settings/ContactSettingsPage"),
 );
+const AuditLogPage = lazy(() => import("@/pages/admin/logs/AuditLogPage"));
 const ComingSoonPage = lazy(() => import("@/pages/admin/ComingSoonPage"));
 
 const AppRoutes = () => (
@@ -84,7 +85,7 @@ const AppRoutes = () => (
 					<Route path="organization" element={<OrganizationPage />} />
 					<Route
 						path="logs"
-						element={<ComingSoonPage title="Log aktivitas" />}
+						element={<AuditLogPage title="Log aktivitas" />}
 					/>
 				</Route>
 			</Route>
